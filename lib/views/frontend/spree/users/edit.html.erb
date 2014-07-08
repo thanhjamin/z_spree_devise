@@ -1,0 +1,28 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+
+<h1 style="background: #404040; text-transform: uppercase; color: white; font-weight: 600; letter-spacing: 0.15em; font-size: 17px; padding: 1.5em 0; margin: 0px; text-align: center; width: 440px;"><%= Spree.t(:editing_user) %></h1>
+
+<div id='edit_user_form'>
+  <%= form_for Spree::User.new, :as => @user, :url => spree.user_path(@user), :method => :put do |f| %>
+    <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+
+    <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 5px'>
+      <%= f.email_field :doctor_name, :class => 'title', :placeholder => "doctor's name" %>
+    </p>
+
+    <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 5px'>
+      <%= f.email_field :clinic_name, :class => 'title', :placeholder => 'clinic_name' %>
+    </p>
+
+    <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 5px'>
+      <%= f.email_field :clinic_phone, :class => 'title', :placeholder => 'clinic phone number' %>
+    </p>
+
+    <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 5px'>
+      <%= f.email_field :patient_id, :class => 'title', :placeholder => 'patient id' %>
+    </p>
+    <p style='margin: auto 3%;'>
+      <%= f.submit Spree.t(:update), :class => 'button primary' %>
+    </p>
+  <% end %>
+</div>

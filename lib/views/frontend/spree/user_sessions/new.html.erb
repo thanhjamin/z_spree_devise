@@ -1,0 +1,15 @@
+<% if flash[:alert] %>
+  <div class="flash errors"><%= flash[:alert] %></div>
+<% end %>
+
+<% @body_id = 'login' %>
+<div id="existing-customer">
+  <h1 style='text-align:center; color: #ffffff; margin-top: 50px;'>Login</h1>
+  <p style='text-align:center; color: #ffffff; padding: 0px; margin: 0px 0px 50px 0px;'>Don't have an account? <%= link_to 'Register', spree.signup_path, id:'register' %></p>
+  <div data-hook="login">
+    <%= render :partial => 'spree/shared/login' %>
+    <%= Spree.t(:or) %>
+
+  </div>
+</div>
+<div data-hook="login_extras"></div>

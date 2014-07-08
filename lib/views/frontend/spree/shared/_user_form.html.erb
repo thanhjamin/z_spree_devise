@@ -1,0 +1,14 @@
+<p style='padding-left: 15px; padding-right: 15px; padding-top:20px; margin-bottom: 0px; margin-top: 0px'>
+  <%= f.email_field :email, :class => 'title', :placeholder => 'email' %>
+</p>
+<div id="password-credentials">
+  <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+    <%= f.password_field :password, :class => 'title', :placeholder => 'password' %>
+  </p>
+
+  <p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+    <%= f.password_field :password_confirmation, :class => 'title', :placeholder => 'password confirmation' %>
+  </p>
+</div>
+
+<div data-hook="signup_below_password_fields"></div>

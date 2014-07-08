@@ -1,0 +1,16 @@
+<%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
+
+  <h3 style="background: #404040; text-transform: uppercase; color: white; font-weight: 600; letter-spacing: 0.15em; font-size: 17px; padding: 1.5em 0; margin: 0px; text-align: center;">LOGIN WITH YOUR EMAIL</h3>
+
+  <div id="password-credentials">
+    <p>
+      <%= f.email_field :email, :class => 'title', :tabindex => 1, :placeholder => 'email' %>
+    </p>
+    <p>
+      <%= f.password_field :password, :class => 'title', :tabindex => 2, :placeholder => 'password' %>
+    </p>
+  </div>
+
+  <p><%= f.submit Spree.t(:login), :class => 'button primary', :tabindex => 4 %>  </p>
+  <p id='forgot-password'><%= link_to Spree.t(:forgot_password), spree.recover_password_path %></p>
+<% end %>

@@ -1,0 +1,59 @@
+<p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 5px'>
+  <%= f.text_field :doctor_name, :placeholder => "doctor's name" %>
+</p>
+
+<p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+  <%= f.text_field :clinic_name, :placeholder => "clinic name" %>
+</p>
+
+<p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+  <%= f.text_field :patient_id, :placeholder => 'patient id' %>
+</p>
+
+<p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+  <%= f.telephone_field :clinic_phone, :placeholder => 'clinic phone number' %>
+</p>
+
+<p style='padding-left: 15px; padding-right: 15px; margin-bottom: 0px; margin-top: 0px'>
+  <%= f.text_field :driver_license_number, :placeholder => "driver's license number" %>
+</p>
+
+<%= f.text_field :driver_license_expiration, class: "uploadFile", placeholder: "driver's license expiration date", id:"driver_placeholder" %>
+<div class="fileUpload btn btn-primary" style="border:none; width: 13%; padding: 11px 4% 10px 4%;">
+  <span><i class="icon-calendar"></i></span>
+  <input type='text' id='datepicker', style='cursor:pointer; height: 54px;'/>
+
+</div>
+
+<input class="uploadFile" placeholder="medical recommendation image" disabled="disabled" id='green_placeholder'/>
+<div class="fileUpload btn btn-primary" style="border:none;">
+  <span>UPLOAD</span>
+  <%= f.file_field :photo, :id => 'green_card_file_input' %>
+</div>
+
+<div data-hook="signup_below_password_fields"></div>
+
+<script>
+  $(function() {
+    $('input#green_card_file_input').on('change', function() {
+        $('input#green_placeholder').attr("placeholder", this.value.replace(/^.*\\/, ""));
+    });
+    $('#datepicker').datepicker({
+    onSelect: function(dateText, inst) {
+      $("input#driver_placeholder").val(dateText);
+      console.log($("input#driver_placeholder").val(dateText))
+    }
+
+    });
+  });
+
+  // $(function() {
+  //   $('input#datepicker').on('change', function() {
+  //       $('input#driver_placeholder').attr("placeholder", this.value);
+  //     });
+  // });
+</script>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+

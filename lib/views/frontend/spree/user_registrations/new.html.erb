@@ -1,0 +1,31 @@
+<% @body_id = 'signup' %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+
+<div id="new-customer">
+  <h1>Register</h1>
+  <p style='text-align:center; color: #ffffff; padding: 0px; margin: 0px 0px 50px 0px;'>Already have an account? <%= link_to 'Login', spree.login_path, id:'sign-in' %></p>
+
+  <div data-hook="signup" style='margin-top: 20px;' id='login-form'>
+    <%= form_for resource, :as => :spree_user, :url => spree.registration_path(@user), :html => { :multipart => true } do |f| %>
+      <h3 style="background: #404040; text-transform: uppercase; color: white; font-weight: 600; letter-spacing: 0.15em; font-size: 17px; padding: 1.5em 0; margin: 0px; text-align: center;">LOGIN INFORMATION</h3>
+      <div data-hook="signup_inside_form">
+        <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+      </div>
+  </div>
+
+</div>
+
+<div data-hook="login_extras"></div>
+
+  <div data-hook="signup" id='medical-form'>
+    <h3 style="background: #404040; text-transform: uppercase; color: white; font-weight: 600; letter-spacing: 0.15em; font-size: 17px; padding: 1.5em 0; margin: 0px; text-align: center;">MEDICAL INFORMATION</h3>
+    <div data-hook="signup_inside_form">
+      <%= render :partial => 'spree/shared/medical_form', :locals => { :f => f } %>
+    </div>
+
+    <p style='margin: 0px 15px 0px 15px;'><%= f.submit 'Register', :class => 'button primary' %></p>
+  </div>
+
+<% end %>
+
